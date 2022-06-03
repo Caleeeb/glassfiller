@@ -31,7 +31,7 @@ Post.init(
             key: 'id'
         }
     },
-    measurement: {
+    measurements: {
         type: DataTypes.INTEGER,
         allowNull: true,
     }
