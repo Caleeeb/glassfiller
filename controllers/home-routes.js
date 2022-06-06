@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
         'id',
         'title',
         'ingredients',
-        'measurements',
+        'description',
         'created_at',
       ],
       include: [
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
         // pass a single post object into the homepage template
        const posts = dbPostData.map(post => post.get({ plain: true }));
   
-        res.render('homepage', { 
+        res.render('homepage', 'add-recipe', { 
           posts,
           loggedIn: req.session.loggedIn
         });
@@ -47,7 +47,7 @@ router.get('/post/:id', (req, res) => {
         'id',
         'title',
         'ingredients',
-        'measurements',
+        'description',
         'created_at',
       ],
       include: [

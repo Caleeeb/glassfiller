@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 	console.log("==============================");
 	Post.findAll({
 		order: [["created_at", "DESC"]],
-		attributes: ["id", "title", "ingredients", "user_id", "created_at"],
+		attributes: ["id", "title", "ingredients", "description", "user_id", "created_at",],
 		order: [["created_at", "DESC"]],
 		include: [
 			{
@@ -28,7 +28,7 @@ router.get("/:id", (req, res) => {
 		where: {
 			id: req.params.id,
 		},
-		attributes: ["id", "title", "ingredients", "user_id", "created_at"],
+		attributes: ["id", "title", "ingredients", "description", "user_id", "created_at"],
 		include: [
 			{
 				model: User,
@@ -55,6 +55,7 @@ router.post("/", (req, res) => {
 	Post.create({
 		title: req.body.title,
 		ingedients: JSON.stringify(req.body.ingredients),
+		description: req.body.description,
 		user_id: req.body.user_id,
 	})
 		.then((dbPostData) => res.json(dbPostData))

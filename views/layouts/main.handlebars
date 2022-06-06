@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Just Tech News</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<!-- TODO bootstrap link -->
 	</head>
 
 	<body>
@@ -18,6 +19,9 @@
 						<button id="logout" class="btn-no-style">logout</button>
 					{{else}}
 						<a href="/login">login</a>
+					{{/if}}
+					{{#if loggedIn}}
+						<a href="/add-recipe">My Recipe Page</a>
 					{{/if}}
 				</nav>
 			</header>
