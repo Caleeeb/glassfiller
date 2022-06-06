@@ -68,7 +68,7 @@ router.post('/login', (req, res) => {
       }
     }).then(dbUserData => {
       if (!dbUserData) {
-        res.status(400).json({ message: 'No user with that email address!' });
+        res.status(400).json({ message: 'No user with that username!' });
         return;
       }
   
@@ -78,18 +78,19 @@ router.post('/login', (req, res) => {
         res.status(400).json({ message: 'Incorrect password!' });
         return;
       }
-  
-      req.session.save(() => {
+      
+      // .save is returning as undefined
+      /*req.session.save(() => {
         //declare session variables
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
       
   
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      res.json({ user: dbUserData, message: 'You are now logged in!' });*/
       });
     });
-  });    
+  // });    
 
 
 // update user (may not be necessary)

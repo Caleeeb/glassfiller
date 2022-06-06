@@ -79,12 +79,12 @@ router.get('/post/:id', (req, res) => {
   });
 
 
-// create login session
+// create login session (The commented out code was preventing the login page from loading)
 router.get('/login', (req, res) => {
-    if(req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
+    //if(req.session.loggedIn) {
+      //res.redirect('/');
+      //return;
+    //}
     res.render('login');
   });
 
