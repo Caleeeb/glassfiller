@@ -80,7 +80,7 @@ router.post('/login', (req, res) => {
       }
       
       // .save is returning as undefined
-      /*req.session.save(() => {
+      /* req.session.save(() => {
         //declare session variables
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;

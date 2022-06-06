@@ -5,6 +5,7 @@ async function signupFormHandler(event) {
     const password = document.querySelector('#password-signup').value.trim();
   
     if (username && password) {
+      // this path used to be api/users/login and it couldn't be found?
       const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify({
@@ -17,7 +18,7 @@ async function signupFormHandler(event) {
       if (response.ok) {
           console.log('New User Created');
           // after successfully creating new user, return to homepage
-          return ('../../homepage');
+          return ("/");
       } else {
           alert(response.statusText);
       }
@@ -35,7 +36,8 @@ async function loginFormHandler(event) {
     const password = document.querySelector('#password-login').value.trim();
   
     if (username && password) {
-      const response = await fetch('/api/users/login', {
+      // /api/users/login cannot be found for some reason 
+      const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify({
           username,
@@ -45,9 +47,10 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        console.log('logged In')
+        
         // after successfully logging in, return to homepage 
-        document.location.replace('/dashboard');
+        document.location.replace('/');
+        console.log('logged In')
       } else {
         alert(response.statusText);
       }
