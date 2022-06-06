@@ -17,9 +17,10 @@
   <div class="card-body">
     <h5 class="card-title">{{recipe.title}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">Author: {{recipe.username}}</h6>
+    {{/each}}
     <ul class ='ingredients-container'>
       {{#each recipes.ingredients as |ingredient|}}
-      <li class = 'ingredient'>{{ingredient.name}}: {{ingredient.quantity + ingredient.unit}}</li>
+      <li class = 'ingredient'>{{ingredient.name}}: {{ingredient.quantity}} + {{ingredient.unit}}</li>
     </ul>
     {{/each}}
     <button class ='add-ingredient'>+</button>
@@ -27,3 +28,6 @@
     <a href="#" class="card-link">Another link</a>
   </div>
 </div>
+</div>
+</div>
+
