@@ -6,53 +6,58 @@
 		<title>Glassfiller</title>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 		<!-- bootstrap CSS -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
 	</head>
 
-	  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Glassfiller</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-				{{#if req.session.loggedIn}}
-					<button id="logout" class="btn-no-style">logout</button>
-					<script src="/javascript/logout.js"></script>
-				{{else}}
-					<a href="/login">login</a>
-				{{/if}}
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">Glassfiller</a>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-mdb-toggle="collapse"
+				data-mdb-target="#navbarNav"
+				aria-controls="navbarNav"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						{{#if loggedIn}}
+							<button id="logout" class="btn-no-style">logout</button>
+							<script src="/javascript/logout.js"></script>
+						{{else}}
+							<a href="/login">login</a>
+						{{/if}}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-<body>
-	<div class="wrapper">
-		<main>
-			{{{body}}}
-		</main>
+	<body>
+		<div class="wrapper">
+			<main>
+				{{{body}}}
+			</main>
 
-		<footer>
-			Happy drinking!
-		</footer>
-	</div>
+			<footer>
+				Happy drinking!
+			</footer>
+		</div>
 
-</body>
+	</body>
 
 </html>
