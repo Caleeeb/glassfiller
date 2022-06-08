@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
   
         res.render('homepage', { 
           posts,
-          // loggedIn: req.session.loggedIn
+          loggedIn: req.session.loggedIn
         });
       })
       .catch(err => {
@@ -67,7 +67,7 @@ router.get('/post/:id', (req, res) => {
         const post = dbPostData.get({ plain: true });
   
         // pass data to template
-        res.render('single-post', { 
+        res.render('single-recipe', { 
           post,
           loggedIn: req.session.loggedIn
         });
@@ -81,12 +81,17 @@ router.get('/post/:id', (req, res) => {
 
 // create login session (The commented out code was preventing the login page from loading)
 router.get('/login', (req, res) => {
-    //if(req.session.loggedIn) {
-      //res.redirect('/');
-      //return;
-    //}
+    if(req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
     res.render('login');
   });
+
+
+router.get('/add-recipe', (req, res) => {
+ res.render('add-recipe');
+});
 
 
 

@@ -43,24 +43,28 @@ router.get('/:id', (req, res) => {
 
 
 // create user post
-router.post('/', (req, res) => {
-    User.create({
-      username: req.body.username,
-      password: req.body.password
-    })
-      .then(dbUserData => {
-        // req.session.save(() => {
-        //   req.session.user_id = dbUserData.id;
-        //   req.session.username = dbUserData.username;
-        //   req.session.loggedIn = true;
+// router.post('', (req, res) => {
+//     User.create({
+//       username: req.body.username,
+//       password: req.body.password
+//     })
+//       .then(dbUserData => {
+//          req.session.save(() => {
+//            req.session.user_id = dbUserData.id;
+//            req.session.username = dbUserData.username;
+//            req.session.loggedIn = true;
   
-          res.json(dbUserData);
-        });
-      });
+//           res.json(dbUserData);
+//         });
+//       });
+// });
     
 
 
+
+
 // post route for login
+// add console logs to find where it's stopping 
 router.post('/login', (req, res) => {
     User.findOne({
       where: {
@@ -80,17 +84,20 @@ router.post('/login', (req, res) => {
       }
       
       // .save is returning as undefined
-      /* req.session.save(() => {
+       req.session.save(() => {
         //declare session variables
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
       
   
-      res.json({ user: dbUserData, message: 'You are now logged in!' });*/
-      });
+      res.json({ user: dbUserData, message: 'You are now logged in!',  });
+      })
+    }).catch(err => {
+      console.error(err)
+      res.json(err)
     });
-  // });    
+   });    
 
 
 // update user (may not be necessary)

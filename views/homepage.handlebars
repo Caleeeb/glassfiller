@@ -2,7 +2,7 @@
 <!-- main container -->
 <div class="container">
 
-    <!-- main column?-->
+    <!-- main column-->
     <div class="column">
 
       <!-- hero banner -->
@@ -23,7 +23,9 @@
                   Come to life and fade away;
                   What care I how time advances?
                   I am drinking ale today.” -Edgar Allen Poe </p>
-                <a href="#" class="btn btn-outline-secondary btn-lg border">Add New Recipe</a>
+                {{#if req.session.loggedIn}}
+                <a href="/add-recipe" class="btn btn-outline-secondary btn-lg border">Add New Recipe</a>
+                {{/if}}
             </div>
         </div>
     </div>

@@ -30,10 +30,7 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a href="/add-recipe" href="#">My Recipies</a>
-        </li>
-        <li class="nav-item">
-				{{#if loggedIn}}
+				{{#if req.session.loggedIn}}
 					<button id="logout" class="btn-no-style">logout</button>
 					<script src="/javascript/logout.js"></script>
 				{{else}}
