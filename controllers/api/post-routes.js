@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const { User, Post } = require("../../models");
+const { User, Recipe, Ingredient } = require("../../models");
 const sequelize = require("../../config/connection");
 
 // get all users
 router.get("/", (req, res) => {
 	console.log("==============================");
-	Post.findAll({
+	Recipe.findAll({
 		order: [["created_at", "DESC"]],
 		attributes: ["id", "title", "ingredients", "description", "user_id", "created_at",],
 		order: [["created_at", "DESC"]],
@@ -16,7 +16,13 @@ router.get("/", (req, res) => {
 			},
 		],
 	})
-		.then((dbPostData) => res.json(dbPostData))
+		.then((dbPostData) => {
+		// 	dbPostData.map(post => {
+		// 	post.ingredients = JSON.parse(post.ingredients)
+		// 	return post
+		// })
+			res.json (dbPostData)
+		})
 		.catch((err) => {
 			console.log(err);
 			res.status(500).json(err);
@@ -24,7 +30,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-	Post.findOne({
+	Recipe.findOne({
 		where: {
 			id: req.params.id,
 		},
@@ -50,14 +56,22 @@ router.get("/:id", (req, res) => {
 		});
 });
 
+// post recipe 
 router.post("/", (req, res) => {
+	console.log(req.body)
 	// expects {title: 'Mai Tai', ingedients: [{name:'Lime Juice', quantity: '3/4', unit: "oz"}, {name:'Orgeat', quantity: '1/2', unit: "oz"}, 'Dry Curacao', 'Rum', 'Mint'], user_id: 1, }
-	Post.create({
+	Recipe.create({
 		title: req.body.title,
-		ingedients: JSON.stringify(req.body.ingredients),
+		// ingredients: JSON.stringify(req.body.ingredients),
 		description: req.body.description,
 		user_id: req.body.user_id,
 	})
+		.then(postData => {
+			const ingredients = req.body.ingredients.map(ingredient => {
+				return {...ingredient, post_id: postData.id}
+			})
+			return Ingredient.bulkCreate(ingredients)
+		})
 		.then((dbPostData) => res.json(dbPostData))
 		.catch((err) => {
 			console.log(err);
@@ -66,7 +80,7 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-	Post.update(req.body, {
+	Recipe.update(req.body, {
 		where: {
 			id: req.params.id,
 		},
@@ -85,7 +99,7 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-	Post.destroy({
+	Recipe.destroy({
 		where: {
 			id: req.params.id,
 		},

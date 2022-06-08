@@ -1,25 +1,28 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { User, Post } = require("../models");
+const { User, Recipe, Ingredient } = require("../models");
 
 // get all recipe cards
 router.get("/", (req, res) => {
 	console.log(req.session);
-	Post.findAll({
+	Recipe.findAll({
 		attributes: ["id", "title", "ingredients", "description", "created_at"],
 		include: [
 			{
 				model: User,
 				attributes: ["username"],
 			},
+			{
+				model: Ingredient,
+			},
 		],
 	})
 		.then((dbPostData) => {
 			// pass a single post object into the homepage template
-			const posts = dbPostData.map((post) => post.get({ plain: true }));
+			const recipes = dbPostData.map((post) => post.get({ plain: true }));
 
 			res.render("homepage", {
-				posts,
+				recipes,
 				loggedIn: req.session.loggedIn,
 			});
 		})
@@ -31,15 +34,18 @@ router.get("/", (req, res) => {
 
 // get one recipe card
 router.get("/posts/:id", (req, res) => {
-	Post.findOne({
+	Recipe.findOne({
 		where: {
 			id: req.params.id,
 		},
 		attributes: ["id", "title", "ingredients", "description", "created_at"],
 		include: [
 			{
-				model: User,
+				model: User, 
 				attributes: ["username"],
+			},
+			{
+				model: Ingredient,
 			},
 		],
 	})
