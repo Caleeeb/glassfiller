@@ -6,7 +6,7 @@ const { User, Recipe, Ingredient } = require("../models");
 router.get("/", (req, res) => {
 	console.log(req.session);
 	Recipe.findAll({
-		attributes: ["id", "title", "ingredients", "description", "created_at"],
+		attributes: ["id", "title", "description", "created_at"],
 		include: [
 			{
 				model: User,
@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 	})
 		.then((dbPostData) => {
 			// pass a single post object into the homepage template
-			const recipes = dbPostData.map((post) => post.get({ plain: true }));
+			const recipes = dbPostData.map((recipe) => recipe.get({ plain: true }));
 
 			res.render("homepage", {
 				recipes,
@@ -33,15 +33,15 @@ router.get("/", (req, res) => {
 });
 
 // get one recipe card
-router.get("/posts/:id", (req, res) => {
+router.get("/recipes/:id", (req, res) => {
 	Recipe.findOne({
 		where: {
 			id: req.params.id,
 		},
-		attributes: ["id", "title", "ingredients", "description", "created_at"],
+		attributes: ["id", "title", "description", "created_at"],
 		include: [
 			{
-				model: User, 
+				model: User,
 				attributes: ["username"],
 			},
 			{
@@ -56,11 +56,11 @@ router.get("/posts/:id", (req, res) => {
 			}
 
 			// serialize the data
-			const post = dbPostData.get({ plain: true });
+			const recipe = dbPostData.get({ plain: true });
 
 			// pass data to template
 			res.render("single-recipe", {
-				post,
+				recipe,
 				loggedIn: req.session.loggedIn,
 			});
 		})

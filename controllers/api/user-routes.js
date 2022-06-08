@@ -23,14 +23,7 @@ router.get("/:id", (req, res) => {
 		include: [
 			{
 				model: Recipe,
-				attributes: [
-					"id",
-					"title",
-					"ingredients",
-					"user_id",
-					"measurements",
-					"created_at",
-				],
+				attributes: ["id", "title", "user_id", "measurements", "created_at"],
 			},
 		],
 	})

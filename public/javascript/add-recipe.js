@@ -1,22 +1,22 @@
 async function recipeFormHandler(event) {
 	event.preventDefault();
 
-const ingredientsArray = [{name:'Lime Juice', quantity: '3/4', unit: "oz"}, {name:'Orgeat', quantity: '1/2', unit: "oz"}];
+	const title = document.querySelector(".recipe-name").value.trim();
+	const name = document.querySelector(".name").value.trim();
+	const quantity = document.querySelector(".quantity").value.trim();
+	const unit = document.querySelector(".unit").value.trim();
+	const description = document.querySelector(".desciption").value;
 
-	const ingredients = ingredientsArray.map(ingredient => ({
-    name: ingredient.name,
-    quantity: ingredient.quantity,
-    unit: ingredient.unit
-  }));
-
-  if (recipe_added) {
-		const response = await fetch("/api/posts", {
+	if (recipe_added) {
+		const response = await fetch("/api/recipes", {
 			method: "POST",
 			body: JSON.stringify({
-                title,
-		        ingredients,
+				title,
 				description,
-               // user_id, grab from back end instead req.sessions
+				name,
+				quantity,
+				unit,
+				// user_id, grab from back end instead req.sessions
 			}),
 			headers: {
 				"Content-Type": "application/json",
@@ -39,4 +39,4 @@ const ingredientsArray = [{name:'Lime Juice', quantity: '3/4', unit: "oz"}, {nam
 
 // const ingredientsArray = document.querySelectorAll(".ingredient")
 // console.log(ingredientsArray);
-// document.onclick(".add-ingredient", handleNewIngredient);
+document.onclick("submit-recipe", recipeFormHandler);

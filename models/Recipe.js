@@ -17,15 +17,9 @@ Recipe.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		// ingredients: {
-		// 	// this is going to store a json object
-		// 	// this information will look like ingedients: [{name:'Lime Juice', quantity: '3/4', unit: "oz"}, {name:'Orgeat', quantity: '1/2', unit: "oz"}, 'Dry Curacao', 'Rum', 'Mint']
-		// 	type: DataTypes.STRING,
-		// 	allowNull: false,
-		// },
 		description: {
 			type: DataTypes.STRING,
-			allowNull: false
+			allowNull: false,
 		},
 		user_id: {
 			type: DataTypes.INTEGER,

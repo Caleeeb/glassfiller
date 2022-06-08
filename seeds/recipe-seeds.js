@@ -1,15 +1,13 @@
 const { Recipe } = require("../models");
 
-const postdata = [
+const recipeData = [
 	{
 		title: "Mai Tai",
-		ingredients:
-			"[{'name': 'Lime Juice', 'quantity': '3/4', 'unit': 'oz'}, {'name': 'Dry Curacao', 'quantity': '1/2', 'unit': 'oz'}, {'name': 'Orgeat', 'quantity': '1/2', 'unit': 'oz'}, {'name': 'Rum', 'quantity': '2', 'unit': 'oz'}]",
-		description: 'Mai Tai description, is good, me drunk',
-			user_id: 1,
+		description: "Mai Tai description, is good, me drunk",
+		user_id: 1,
 	},
 ];
 
-const seedPosts = () => Recipe.bulkCreate(postdata);
+const seedRecipes = () => Recipe.bulkCreate(recipeData);
 
-module.exports = seedPosts;
+module.exports = seedRecipes;
