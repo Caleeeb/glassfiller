@@ -9,10 +9,10 @@
       <section class="hero-banner bg-light py-5">
     <div class="container">
         <div class="row row align-items-center">
-            <div class="col-lg-5 offset-lg-1 order-lg-1">
+            <div class="col-5">
               <p>Recipe previews go on this side?</p>
             </div>
-            <div class="col-lg-5">
+            <div class="col-5">
                 <h1 class="mt-3">Browse our collection of cocktails & post a recipe of your own!</h1>
                 <p class="lead text-secondary my-5">
                   “Fill with mingled cream and amber,
@@ -36,12 +36,7 @@
       <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">{{recipe.title}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Author: {{recipe.username}}</h6>
-    {{/each}}
-    <ul class ='ingredients-container'>
-      {{#each recipes.ingredients as |ingredient|}}
-      <li class = 'ingredient'>{{ingredient.name}}: {{ingredient.quantity}} + {{ingredient.unit}}</li>
-    </ul>
+    <h6 class="card-subtitle mb-2 text-muted"> {{recipe.description}}</h6>
     {{/each}}
     </div>
   </div>
