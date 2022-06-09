@@ -46,6 +46,7 @@ router.get("/recipes/:id", (req, res) => {
 			},
 			{
 				model: Ingredient,
+				attributes: ["name", "quantity", "unit", "garnish", "created_at"],
 			},
 		],
 	})

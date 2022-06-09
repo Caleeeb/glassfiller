@@ -38,6 +38,10 @@ router.get("/:id", (req, res) => {
 				model: User,
 				attributes: ["username"],
 			},
+			{
+				model: Ingredient,
+				attributes: ["name", "quantity", "unit", "garnish", "created_at"],
+			},
 		],
 	})
 		.then((dbPostData) => {
