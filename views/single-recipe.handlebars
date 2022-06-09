@@ -1,25 +1,14 @@
-<div class="container">
-	
-	<div class="row">
-		<!--drink title/description
-        Add bootstrap card -->
-		<h1>{{recipe.title}}</h1>
-		<div class="col-4 card">
-			<div class="card-header">
-				{{recipe.ingredients.name}}
-				{{recipe.ingredients.quanity}}
-				{{recipe.ingredients.unit}}
-				{{recipe.ingredients.garnish}}
-			</div>
-			<div class="card-body drink-description">
-
-
-			</div>
-		</div>
-		<!-- ingredients/measurements -->
-		<div class="col-8">
-			<!--ingredients, quanity, units -->
-		</div>
-	</div>
-	
-</div>
+<div class="container col-5 mt-5">
+    <div class="row mx-auto">
+        <div class="mx-auto col-6">
+            <div class="card">
+                <div class="card-header">
+                <h1>{{recipe.title}}</h1> 
+                </div>
+                <div class="card-body">
+                  <p class="card-text">{{recipe.description}}.</p>
+                </div>
+            </div>   
+        </div>
+    </div>  
+    </div>

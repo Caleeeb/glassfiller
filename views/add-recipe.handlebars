@@ -1,17 +1,46 @@
-<div class="container">
-	<div class="title">
-		<label for="recipe-name">Cocktail Name:</label>
-		<input type="text" id="title" name="recipe-name" /><br /><br />
-		<form action="/action_page.php">
-			<label for="iName">Ingredient Name:</label>
-			<input type="text" id="name" name="iName" /><br /><br />
-			<label for="ingredient-quantity">Amount:</label>
-			<input type="text" id="quantity" name="ingredient-quantity" /><br /><br />
-			<label for="unit">Unit:</label>
-			<input type="text" id="unit" name="unit" /><br /><br />
-			<input type="submit" class="submit-recipe" value="Submit" />
-			<textarea class="description">Description</textarea>
-		</form>
-	</div>
+<div class="container bg-light mt-5 col-6">
+    <div> 
+    <form class="">
+    <div class="form-group">
+        <label for="recipe-name">Cocktail Name:</label>
+        <br>
+        <input class="form-control" type="text" id="title" name="recipe-name" />
+    </div>
+    
+    <div class="container border">
+        <div class="form-group">
+        <form action="/action_page.php">
+        <label for="iName">Ingredient Name:</label>
+        <br>
+        <input class="form-control" type="text" id="name" name="iName" />
+    </div>
+        <div class="row"> 
+        <div class="form-group col-3">
+        <label for="ingredient-quantity">Amount:</label>
+        <br>
+        <input class="form-control" type="text" id="quantity" name="ingredient-quantity"/> 
+    </div>
+    <div class="form-group col-3">
+        <label for="unit">Unit:</label>
+        <br>
+        <input class="form-control" type="text" id="unit" name="unit" />
+    </div>  
+        </div>
+        
+    </div>  
+<div class="form-group">
+        <label for="unit">Description</label>
+        <br>
+        <input class="form-control" type="text" id="description" name="description" />
+    </div>
+
+        <input type="submit" class="submit-recipe" value="Submit"/>
+        
+        
+    </div>  
+        </form>
+    </div>  
+    </form> 
+    </div>  
 </div>
 <script src="/javascript/add-recipe.js"></script>

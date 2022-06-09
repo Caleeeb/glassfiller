@@ -1,18 +1,14 @@
-
 <!-- main container -->
-<div class="container">
+<div class="container mt-5 border border-2 rounded bg-light py-3">
 
     <!-- main column-->
     <div class="column">
 
       <!-- hero banner -->
-      <section class="hero-banner bg-light py-5">
-    <div class="container">
+      <section class="hero-banner">
+    <div class="container auto-mx">
         <div class="row row align-items-center">
-            <div class="col-5">
-              <p>Recipe previews go on this side?</p>
-            </div>
-            <div class="col-5">
+            <div class="col-6">
                 <h1 class="mt-3">Browse our collection of cocktails & post a recipe of your own!</h1>
                 <p class="lead text-secondary my-5">
                   “Fill with mingled cream and amber,
@@ -23,23 +19,34 @@
                   Come to life and fade away;
                   What care I how time advances?
                   I am drinking ale today.” -Edgar Allen Poe </p>
-                {{#if loggedIn}}
-                <a href="/add-recipe" class="btn btn-outline-secondary btn-lg border">Add New Recipe</a>
-                {{/if}}
+
+              <div class="mx-auto">
+              {{#if loggedIn}}
+              <a href="/add-recipe" class="btn btn-outline-secondary btn-lg border">Add New Recipe</a>
+              {{/if}}
+              </div>
             </div>
+
+            <div class="col-6">
+              {{#each recipes as |recipe|}}
+              <div class="card-column"></div>
+              <div class="card" style="width: 18rem;">
+              <div class="card-body">
+              <h5 class="card-title"><a href="/recipes/{{recipe.id}}">{{recipe.title}}</a></h5>
+              <h .6 class="card-subtitle mb-2 text-muted"> {{recipe.description}}</h6>
+            
+            </div>
+          </div>
+          {{/each}}
+          </div>
+
+          
+            
         </div>
     </div>
 </section>
 
-      {{#each recipes as |recipe|}}
-      <div class="card-column"></div>
-      <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><a href="/recipes/{{recipe.id}}">{{recipe.title}}</a></h5>
-    <h6 class="card-subtitle mb-2 text-muted"> {{recipe.description}}</h6>
-    {{/each}}
-    </div>
-  </div>
+
 
 
   </div>
