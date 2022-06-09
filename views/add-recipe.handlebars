@@ -1,17 +1,31 @@
-<div class="container border col-5">
-	<div class="title">
+<div class="container border col-3">
+	<div> 
+	<form>
+	<div class="form-group">
 		<label for="recipe-name">Cocktail Name:</label>
-		<input type="text" id="title" name="recipe-name" /><br /><br />
-		<form action="/action_page.php">
-			<label for="iName">Ingredient Name:</label>
-			<input type="text" id="name" name="iName" /><br /><br />
-			<label for="ingredient-quantity">Amount:</label>
-			<input type="text" id="quantity" name="ingredient-quantity" /><br /><br />
-			<label for="unit">Unit:</label>
-			<input type="text" id="unit" name="unit" /><br /><br />
-			<input type="submit" class="submit-recipe" value="Submit" />
-			<textarea class="description">Description</textarea>
-		</form>
+		<input type="text" id="title" name="recipe-name" />
+		<small id="nameHelp" class="form-text text-muted">Give your cocktail a creative name.</small>
 	</div>
+	<div class="form-group">
+		<form action="/action_page.php">
+		<label for="iName">Ingredient Name:</label>
+		<input type="text" id="name" name="iName" />
+	</div>
+	<div class="form-group">
+		<label for="ingredient-quantity">Amount:</label>
+		<input type="text" id="quantity" name="ingredient-quantity"/> 
+	</div>
+	<div class="form-group">
+		<label for="unit">Unit:</label>
+		<input type="text" id="unit" name="unit" />
+	</div>
+	<div class="form-group">
+		<input type="submit" class="submit-recipe" value="Submit"/>
+		<textarea class="description">Description</textarea>
+	</div>	
+		</form>
+	</div>	
+	</form>	
+	</div>	
 </div>
 <script src="/javascript/add-recipe.js"></script>
