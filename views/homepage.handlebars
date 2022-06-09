@@ -1,18 +1,15 @@
 
 <!-- main container -->
-<div class="container ">
+<div class="container">
 
     <!-- main column-->
     <div class="column">
 
       <!-- hero banner -->
       <section class="hero-banner bg-light py-5">
-    <div class="container">
+    <div class="container auto-mx">
         <div class="row row align-items-center">
-            <div class="col-5">
-              <p>Recipe previews go on this side?</p>
-            </div>
-            <div class="col-5">
+            <div class="col-6">
                 <h1 class="mt-3">Browse our collection of cocktails & post a recipe of your own!</h1>
                 <p class="lead text-secondary my-5">
                   “Fill with mingled cream and amber,
@@ -23,10 +20,26 @@
                   Come to life and fade away;
                   What care I how time advances?
                   I am drinking ale today.” -Edgar Allen Poe </p>
-                {{#if loggedIn}}
+                
+            </div>
+            <div class="col-6">
+              <div class="card">
+                <div class="card-header">
+                  Drink Submitted By:
+                </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Drink Name </h5>
+                    <p class="card-text"> drink description</p>
+                    <a href="#" class="btn btn-primary">Go to recipe</a>
+                  </div>
+              </div>
+            </div>
+            <div class="mx-auto">
+              {{#if loggedIn}}
                 <a href="/add-recipe" class="btn btn-outline-secondary btn-lg border">Add New Recipe</a>
                 {{/if}}
             </div>
+            
         </div>
     </div>
 </section>
