@@ -1,39 +1,25 @@
 <div class="container">
-    
-    <div class="row">
-        <!--drink title/description
+
+	<div class="row">
+		<!--drink title/description
         Add bootstrap card -->
-        
-        <div class="col-4 card">
-			
-            <div class="card-header"><h1>{{recipe.title}}</h1></div>
-            <div class="card-body drink-description">{{{recipe.description}}} </div>
-			 <div class="col-8">
-				 	
-						{{!-- These finally return, but they come back as the whole array together --}}
-						
-						{{ingredient.name}}
-						{{ingredient.quantity}}
-						{{ingredient.unit}}
-						<p></p>
-			<ul>
-            		<li>Lime Juice        - 3/4 oz</li>
-					<li>Dry Curaco        - 1/2 oz</li>
-					<li>Orgeat            - 1/2 oz</li>
-					<li>Rum               - 2 oz</li>
-					<li>Angostura Bitters - 1 oz</li>
-			</ul>
-        </div>
-            </div>
-        </div>
 
-        
-       
-    </div>
-    
+		<div class="col-4 card">
+
+			<div class="card-header"><h1>{{recipe.title}}</h1></div>
+			<div class="card-body drink-description">{{{recipe.description}}} </div>
+			<div class="col-8">
+
+				{{! These finally return, but they come back as the whole array together }}
+				{{#each ingredients as |ingredient|}}
+					{{ingredient.name}}
+					{{ingredient.quantity}}
+					{{ingredient.unit}}
+					{{ingredient.garnish}}
+				{{/each}}
+
+			</div>
+		</div>
+	</div>
+
 </div>
-
-
-
-
-

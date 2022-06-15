@@ -65,7 +65,17 @@ router.post("/", (req, res) => {
 		description: req.body.description,
 		user_id: req.body.user_id,
 	})
-		.then((dbPostData) => res.json(dbPostData))
+		.then((dbPostData) => {
+			// adding recipe_id to the ingredient objects so they are related
+			const ingredients = req.body.ingredient.map((ingredientObj) => {
+				ingredientObj.recipe_id = dbPostData.id;
+				return ingredientObj;
+			});
+			// creating each individual ingredient into the database
+			Ingredient.bulkCreate(ingredients);
+			console.log(ingredients);
+			res.json(dbPostData);
+		})
 		.catch((err) => {
 			console.log(err);
 			res.status(500).json(err);

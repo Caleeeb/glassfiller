@@ -19,8 +19,8 @@ Ingredient.init(
 			allowNull: false,
 		},
 		garnish: {
-			type: DataTypes.STRING,
-			defaultValue: "None",
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
 		},
 		recipe_id: {
 			type: DataTypes.INTEGER,
@@ -32,6 +32,7 @@ Ingredient.init(
 	},
 	{
 		sequelize,
+		timestamps: false,
 		freezeTableName: true,
 		underscored: true,
 		modelName: "ingredient",

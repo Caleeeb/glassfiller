@@ -1,7 +1,5 @@
- function addRecipe() {
-	return ('/');
- }
+function addRecipe() {
+	return "/";
+}
 
- document
-	.querySelector(".signup-recipe")
-	.addEventListener("submit", addRecipe);
+document.querySelector(".signup-recipe").addEventListener("submit", addRecipe);

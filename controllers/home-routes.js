@@ -62,7 +62,6 @@ router.get("/", (req, res) => {
 		});
 });
 
-
 // get one recipe card
 router.get("/recipes/:id", (req, res) => {
 	Recipe.findOne({
@@ -91,31 +90,13 @@ router.get("/recipes/:id", (req, res) => {
 			const recipe = dbPostData.get({ plain: true });
 			// console.log(recipe);
 
-			const {ingredients} = recipe
-			// console.log(ingredients);
-
-			// all commented out code in this section has to do with trying to return ingredients correctly
-			// We will need to use split to seperate all ingredients, then we can access them through iteration possibly?
-
-			// var myObj = {
-			// 	name: "['Lime Juice', 'Dry Curacao', 'Orgeat', 'Rum', 'Angostura Bitters']",
-			// 	quantity: "['3/4', '1/2', '1/2', '2', '1']",
-			// 	unit: "['oz', 'oz', 'oz', 'oz', 'dash']",
-			// 	garnish: 'Mint',
-			// 	created_at: 2022-06-09T18:17:21.000Z
-			//   }
-			//   myName = myObj.name;
-			//   var myarray = myName.split("'")
-			//   console.log(myarray)
-
-			const ingredient = ingredients[0]
-			console.log(ingredient);
-			
+			const { ingredients } = recipe;
+			console.log(ingredients);
 
 			// pass data to template
 			res.render("single-recipe", {
 				recipe,
-				ingredient,
+				ingredients,
 				loggedIn: req.session.loggedIn,
 			});
 		})
