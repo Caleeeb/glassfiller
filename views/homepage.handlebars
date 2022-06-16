@@ -20,13 +20,13 @@
                   What care I how time advances?
                   I am drinking ale today.” -Edgar Allen Poe
                 </p>
-                <div class="mb-3">
+                <div>
               {{#if loggedIn}}
                 <a href="/add-recipe" class="btn btn-outline-secondary btn-lg border bg-light">Add New Recipe</a>
                 {{/if}}
             </div>
             </div>
-            <div class="col-6" style="overflow-y:scroll">
+            <div class="col-6 mb-3 mt-2" style="overflow-y:scroll">
                     {{#each recipes as |recipe|}}
                   <div> 
                   <div class="card mt-1 border border-2 rounded">
