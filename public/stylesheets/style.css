@@ -1,21 +1,14 @@
 /* main handlebars css */
 .website-background {
-    background-color: #6f3f04;
+    background-image:url('../images/cocktails.jpg');
 }
 
 nav {
     background-color: #be7c18;
 }
 
-/* homepage handlebars */
-
-.main-homepage {
+footer {
     background-color: #be7c18;
 }
 
-
-/* card styling */
-
-
-
-
+/* homepage handlebars */
