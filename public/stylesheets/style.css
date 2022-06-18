@@ -6,4 +6,25 @@ body {
 .forms { 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     opacity: .9;
+    background-color: #ee9c19;
 }
+
+.btn-looks {
+    background-color: #ee9c19;
+    
+    
+}
+nav {
+    background-color: #cc832c;
+}
+nav li {
+ color:#834b16;   
+}
+
+footer{
+background-color: #cc832c;
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 4.5rem;
+} 
