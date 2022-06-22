@@ -26,25 +26,44 @@ const ingredientsdata = [
 		recipe_id: 1,
 	},
 	{
-		name: "Angostura Bitters",
-		quantity: "2",
-		unit: "dash",
-		recipe_id: 1,
-	},
-	{
 		name: "Mint",
 		quantity: "1",
 		unit: "Sprig",
 		garnish: true,
 		recipe_id: 1,
 	},
-	// 	{
-	// 		name: "['Leman Juice', 'Simple Syrup', 'Gin', 'Basil']",
-	// 		quantity: "['1', '3/4', '2', '4-6']",
-	// 		unit: "['oz', 'oz', 'oz', 'leaves']",
-	// 		garnish: "Basil Sprig and Lemon Wedge",
-	// 		recipe_id: 2,
-	// 	},
+	{
+		name: "Lemon Juice",
+		quantity: "1",
+		unit: "oz",
+		recipe_id: 2,
+	},
+	{
+		name: "Simple Syrup",
+		quantity: "3/4",
+		unit: "oz",
+		recipe_id: 2,
+	},
+	{
+		name: "Gin",
+		quantity: "2",
+		unit: "oz",
+		recipe_id: 2,
+	},
+	{
+		name: "Basil",
+		quantity: "4-6",
+		unit: "leaves",
+		recipe_id: 2,
+	},
+	{
+		name: "Basil Sprig and Lemon Wedge",
+		quantity: "1",
+		unit: "Sprig",
+		garnish: true,
+		recipe_id: 2,
+	},
+
 	// 	{
 	// 		name: "['Grapefruit Juice', 'Honey Syrup', 'Rye Whiskey']",
 	// 		quantity: "['1', '1/2', '2',]",
@@ -55,7 +74,5 @@ const ingredientsdata = [
 ];
 
 const seedIngredients = () => Ingredient.bulkCreate(ingredientsdata);
-
-seedIngredients();
 
 module.exports = seedIngredients;

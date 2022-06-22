@@ -36,7 +36,7 @@ router.get("/", (req, res) => {
 router.get("/", (req, res) => {
 	console.log(req.session);
 	Ingredient.findAll({
-		attributes: ["id", "title", "description", "created_at"],
+		attributes: ["id", "title", "description"],
 		include: [
 			{
 				model: User,
@@ -76,7 +76,7 @@ router.get("/recipes/:id", (req, res) => {
 			},
 			{
 				model: Ingredient,
-				attributes: ["name", "quantity", "unit", "garnish", "created_at"],
+				attributes: ["name", "quantity", "unit", "garnish"],
 			},
 		],
 	})

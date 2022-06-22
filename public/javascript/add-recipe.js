@@ -1,66 +1,67 @@
 async function addRecipe(event) {
-  event.preventDefault();
+	event.preventDefault();
 
-  const title = document.querySelector("#title").value.trim();
-  const description = document.querySelector("#description").value.trim();
-  const ingredientList = document.querySelectorAll(".ingredients-row");
-  // ingredientList.forEach
-  // split (grab in reverse starting with last array position)
-  // create a new object with split array and push to new array (map)
+	const title = document.querySelector("#title").value.trim();
+	const description = document.querySelector("#description").value.trim();
+	const ingredientList = document.querySelectorAll(".ingredient-row");
+	const ingredientArray = [];
+	ingredientList.forEach((ingredient) => {
+		const splitArr = ingredient.textContent.split(" ");
+		const unit = splitArr[splitArr.length - 1];
+		const quantity = splitArr[splitArr.length - 2];
+		const name = splitArr.slice(0, splitArr.length - 2).join(" ");
+		const obj = { name, quantity, unit };
+		ingredientArray.push(obj);
+	});
 
-  // This isn't totally right yet and hasn't been tested
-//   const ingredientsArray = [];
-//   ingredientsList.forEach((ingredient) => {
-//     const splitArr = ingredient.split(" ");
-//     const unit = splitArr[splitArr.length - 1];
-//     const quantity = splitArr[splitArr.length - 2];
-//     const name = splitArr.slice(0, splitArr.length - 2).join(" ");
-//     const obj = { name, quantity, unit };
-//     ingredientsArray.push(obj);
-//   });
+	console.log(ingredientArray);
+	if (title && description && ingredientArray) {
+		// /api/users/login cannot be found for some reason
+		const response = await fetch("/api/recipes", {
+			method: "post",
+			body: JSON.stringify({
+				title,
+				description,
+				ingredientArray,
+			}),
+			headers: { "Content-Type": "application/json" },
+		});
 
-  if (title && description && ingredientList) {
-    // /api/users/login cannot be found for some reason
-    const response = await fetch("/api/users/login", {
-      method: "post",
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-      // after successfully logging in, return to homepage
-      document.location.replace("/");
-      console.log("logged In");
-    } else {
-      const res = await response.json();
-      console.log(res);
-      alert(res.message);
-    }
-  }
+		if (response.ok) {
+			const res = await response.json();
+			console.log(res);
+			// after successfully logging in, return to homepage
+			document.location.replace(`/recipes/${res.id}`);
+		} else {
+			const res = await response.json();
+			console.log(res);
+			// alert(res.message);
+		}
+	}
 }
 
 function addIngredient(event) {
-  event.preventDefault();
+	event.preventDefault();
 
-  const ingredient = document.querySelector("#name").value.trim();
-  const quantity = document.querySelector("#quantity").value.trim();
-  const unit = document.querySelector("#unit").value.trim();
+	const ingredient = document.querySelector("#name").value.trim();
+	const quantity = document.querySelector("#quantity").value.trim();
+	const unit = document.querySelector("#unit").value.trim();
+	// const garnish = document.querySelector("#garnish").value.trim();
+	// console.log(ingredient, quantity, unit);
 
-  if (ingredient && quantity && unit) {
-    var row = document.createElement("p");
-    row.classList.add("ingredient-row");
-    row.textContent = ingredient + " " + quantity + " " + unit;
-    document.getElementById("ingredient-list").appendChild(row);
-    document.querySelector("#name").value = "";
-    document.querySelector("#quantity").value = "";
-    document.querySelector("#unit").value = "";
-  }
+	if (ingredient && quantity) {
+		var row = document.createElement("p");
+		row.classList.add("ingredient-row");
+		row.textContent = ingredient + " " + quantity + " " + unit;
+		document.getElementById("ingredient-list").appendChild(row);
+		document.querySelector("#name").value = "";
+		document.querySelector("#quantity").value = "";
+		document.querySelector("#unit").value = "";
+		// document.querySelector("#garnish").value = false;
+	}
 }
 
 document
-  .querySelector("#add-ingredient")
-  .addEventListener("click", addIngredient);
+	.querySelector("#add-ingredient")
+	.addEventListener("click", addIngredient);
 document.querySelector(".submit-recipe").addEventListener("click", addRecipe);

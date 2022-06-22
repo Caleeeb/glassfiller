@@ -16,10 +16,11 @@ Ingredient.init(
 		},
 		unit: {
 			type: DataTypes.STRING,
-			allowNull: false,
+			allowNull: true,
 		},
 		garnish: {
 			type: DataTypes.BOOLEAN,
+			allowNull: true,
 			defaultValue: false,
 		},
 		recipe_id: {
