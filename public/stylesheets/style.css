@@ -1,0 +1,14 @@
+body {
+    background-image: url("../images/cocktails3.jpg");
+    background-size: cover;
+}
+
+.forms { 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    opacity: .9;
+    background-color: #f5b54d;
+    border: 3px solid black;
+}
+
+
+
