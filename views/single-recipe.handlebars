@@ -1,14 +1,14 @@
-<div class="container forms">
+<div class="container mt-5">
 
 	<div class="row">
 		<!--drink title/description
         Add bootstrap card -->
 
-		<div class="col-4 card">
+		<div class="col-md-auto card single " style="width:25rem">
 
-			<div class="card-header"><h1>{{recipe.title}}</h1></div>
-			<div class="card-body drink-description">{{{recipe.description}}} </div>
-			<div class="col-8">
+			<div class="card-header mt-3 text-center"><h1>{{recipe.title}}</h1></div>
+			<div class="card-body">{{{recipe.description}}} </div>
+			<div class="col-8 mb-5 ">
 
 				{{! These finally return, but they come back as the whole array together }}
 				{{#each ingredients as |ingredient|}}

@@ -7,7 +7,7 @@
       <!-- hero banner -->
       <section class="hero-banner">
     <div class="container auto-mx">
-        <div class="row row align-items-center">
+        <div class="row row-align-items-center">
             <div class="col-6">
                 <h1 class="mt-3 text-dark">Browse our collection of cocktails & post a recipe of your own!</h1>
                 <p class="lead my-5 text-dark">
@@ -22,21 +22,22 @@
                 </p>
                 <div>
               {{#if loggedIn}}
-                <a href="/add-recipe" class="btn btn-primary" role="button">Add New Recipe</a>
+                <a href="/add-recipe" class="btn btn-dark mvbtn" role="button">Add New Recipe</a>
                 {{/if}}
             </div>
             </div>
 
 
         <!-- card section -->
-              <div class="col-4 mb-3 mt-2">
+              <div class="col-6 mb-3 mt-2">
                     {{#each recipes as |recipe|}}
-<div class="card mt-2 mb-2">
+
+<div class="card mt-2 mb-2 border">
  <div class="card-header text-center">
   <h5><a href="/recipes/{{recipe.id}}">{{recipe.title}}</a></h5>
   </div>
   <div class="card-body">
-    <p class="card-text text-center">{{recipe.description}}</p>
+    <p class="card-text text-center fs-2">{{recipe.description}}</p>
   </div>
 </div>
                 {{/each}}
