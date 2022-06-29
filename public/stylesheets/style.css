@@ -1,0 +1,35 @@
+body {
+    background-image: url("../images/cocktails3.jpg");
+    background-size: cover;
+}
+
+
+
+.forms { 
+    margin-top: 100px;
+    box-shadow: 0 0 10px rgba(217, 155, 12, 0.5);
+    background-color: #bec2c6;
+    opacity: .9;
+    border: 3px solid black;
+}
+
+.mvbtn {
+    margin-left: 180px;
+}
+
+.homepage-single {
+    box-shadow: 0 0 10px rgba(217, 155, 12, 0.5);   
+}
+
+.single{
+    margin-top: 100px;
+    margin-left: 400px;
+    box-shadow: 0 0 10px rgba(217, 155, 12, 0.5);
+    opacity: .9;
+}
+
+.login {
+    margin-top: 100px;
+    box-shadow: 0 0 10px rgba(217, 155, 12, 0.5);
+    opacity: .9;
+}

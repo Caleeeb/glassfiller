@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 			},
 			{
 				model: Ingredient,
-				attributes: ["name", "quantity", "unit", "garnish", "created_at"],
+				attributes: ["name", "quantity", "unit"],
 			},
 		],
 	})
@@ -40,7 +40,7 @@ router.get("/:id", (req, res) => {
 			},
 			{
 				model: Ingredient,
-				attributes: ["name", "quantity", "unit", "garnish", "created_at"],
+				attributes: ["name", "quantity", "unit"],
 			},
 		],
 	})
@@ -60,12 +60,25 @@ router.get("/:id", (req, res) => {
 // post recipe
 router.post("/", (req, res) => {
 	console.log(req.body);
+	console.log(req.session);
 	Recipe.create({
 		title: req.body.title,
 		description: req.body.description,
-		user_id: req.body.user_id,
+		user_id: req.session.user_id,
 	})
-		.then((dbPostData) => res.json(dbPostData))
+		// TODO: DEBUG
+		.then((dbPostData) => {
+			// adding recipe_id to the ingredient objects so they are related
+			const ingredients = req.body.ingredientArray.map((ingredientObj) => {
+				ingredientObj.recipe_id = dbPostData.id;
+				return ingredientObj;
+			});
+			// creating each individual ingredient into the database
+			Ingredient.bulkCreate(ingredients);
+			console.log(ingredients);
+			console.log(dbPostData);
+			res.json(dbPostData);
+		})
 		.catch((err) => {
 			console.log(err);
 			res.status(500).json(err);

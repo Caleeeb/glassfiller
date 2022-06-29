@@ -1,49 +1,72 @@
-<div class="container bg-light mt-5 col-6 border border-2 rounded">
-    <div> 
-    <form class="">
-    <div class="form-group">
-        <label for="recipe-name" class="mt-2 font-weight-bold">Cocktail Name:</label>
-        <br>
-        <input class="form-control" type="text" id="title" name="recipe-name" />
-    </div>
-    
-    <div class="container border">
-        <div class="form-group">
-        <form action="/action_page.php">
-        <label for="iName" class="font-weight-bold" >Ingredient Name:</label>
-        <br>
-        <input class="form-control" type="text" id="name" name="iName" />
-    </div>
-        <div class="row"> 
-        <div class="form-group col-3">
-        <label for="ingredient-quantity" class="font-weight-bold">Amount:</label>
-        <br>
-        <input class="form-control" type="text" id="quantity" name="ingredient-quantity"/> 
-    </div>
-    <div class="form-group col-3">
-        <label for="unit" class="font-weight-bold">Unit:</label>
-        <br>
-        <input class="form-control" type="text" id="unit" name="unit" />
-    </div>  
-        <div>
-            <p></p>
-            <button class="ml-3 mt-3" id="addIngredient" name="add">Add An Ingredient</button>
-        </div>
-        </div>
-        
-    </div>  
-<div class="form-group">
-        <label for="unit" class="font-weight-bold mt-2">Description:</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
+<div class="container col-6 forms">
+	<div>
+		<div>
+			<div class="form-group">
+				<label for="recipe-name" class="mt-2 font-weight-bold">Cocktail Name:</label>
+				<br />
+				<input class="form-control" type="text" id="title" name="recipe-name" />
+			</div>
 
-        <input type="submit" class="submit-recipe" value="Submit"/>
-        
-        
-    </div>  
-        </form>
-    </div>  
-    </form> 
-    </div>  
+			<div class="container border">
+				<div class="form-group">
+
+					<label for="iName" class="font-weight-bold">Ingredient Name:</label>
+					<br />
+					<input class="form-control" type="text" id="name" name="iName" />
+				</div>
+				<div class="row">
+					<div class="form-group col-3">
+						<label
+							for="ingredient-quantity"
+							class="font-weight-bold"
+						>Amount:</label>
+						<br />
+						<input
+							class="form-control"
+							type="text"
+							id="quantity"
+							name="ingredient-quantity"
+						/>
+					</div>
+					<div class="form-group col-3">
+						<label for="unit" class="font-weight-bold">Unit:</label>
+						<br />
+						<input class="form-control" type="text" id="unit" name="unit" />
+					</div>
+					<!-- <div class="form-group col-3">
+						<label for="garnish" class="font-weight-bold">Garnish:</label>
+						<br />
+						<input
+							class="form-control"
+							type="checkbox"
+							id="garnish"
+							name="garnish"
+						></input> 
+					</div>-->
+					<div>
+						<p></p>
+						<button
+							type="button"
+							class="ml-3 mt-3"
+							id="add-ingredient"
+							name="add"
+						>Add An Ingredient</button>
+					</div>
+				</div>
+
+			</div>
+			<div id="ingredient-list">
+
+			</div>
+			<div class="form-group">
+				<label for="unit" class="font-weight-bold mt-2">Description:</label>
+				<textarea class="form-control" id="description" rows="3"></textarea>
+			</div>
+
+			<input type="button" class="submit-recipe mb-3" value="Submit" />
+
+		</div>
+	</div>
 </div>
+
 <script src="/javascript/add-recipe.js"></script>
