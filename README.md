@@ -25,7 +25,7 @@ Caleb:
 - Original idea
 - Created GitHub repository
 - Wrote JS code with Alex
-- -Deployed to Heroku
+- Deployed to Heroku
 
 
 Jason:
