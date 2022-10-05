@@ -19,7 +19,14 @@ When i return and log in, I can see mine and other user's recipes
 
 ---
 
-### Roles:
+## Final Look:
+![Glassfiller Screenshot](public/images/app-screenshot.png)
+
+https://glassfiller.herokuapp.com/
+
+---
+
+## Roles:
 Caleb:
 
 - Original idea
@@ -37,18 +44,14 @@ Jason:
 Alex:
 -Wrote JS code with Caleb
 -Designed base HTMl & bootstrap structure
-#### Motivation for development:
+### Motivation for development:
 
 Large interest in making cocktails and having access to an online database that allows users to share and create recipes
 
 ---
 
-## Final Look:
-https://github.com/Caleeeb/Glassfiller
-https://glassfiller.herokuapp.com/
 
-
-### Technologies used:
+## Technologies used:
 - Github
 - Node.js and Express.js
 - Handlebars.js 
